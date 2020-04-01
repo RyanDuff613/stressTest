@@ -1,13 +1,15 @@
 $(document).ready(function(){
 
+var totalChecked = 0;
+
 
 
   $('#stressTest').submit(function(event){
 
     $('input:checkbox[name=stressSigns]:checked').each(function(){
-      var section1answers = []; 
-      sections1answers = section1answers.push($(this).val());
-      console.log(section1answers);
+      var section1answers = parseInt($(this).val());
+      totalChecked += section1answers; 
+      console.log(totalChecked);
     });
 
     $('input:checkbox[name=symptoms]:checked').each(function(){
@@ -23,4 +25,7 @@ $(document).ready(function(){
     $('#recommendations').show();
     event.preventDefault();
   });
+ 
+  console.log(totalChecked);
+
 });
